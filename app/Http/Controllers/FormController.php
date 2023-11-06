@@ -44,7 +44,6 @@ class FormController extends Controller
             "gambar" => $filename,
         ]);
 
-        
         return redirect('/allForm');
     }
 }
