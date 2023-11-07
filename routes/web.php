@@ -35,3 +35,5 @@ Route::post('/db-form', [FormController::class, 'store']);
 Route::post('/db-auth', [LoginController::class, 'authenticate']);
 
 Route::get('/allForm', [FormController::class, 'index']);
+
+Route::get('/cache', [FormController::class, 'getCache']);

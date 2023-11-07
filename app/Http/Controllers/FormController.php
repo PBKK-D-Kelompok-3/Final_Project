@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Cache;
+use Predis\Client;
 
 class FormController extends Controller
 {
@@ -44,7 +47,24 @@ class FormController extends Controller
             "gambar" => $filename,
         ]);
 
-        
         return redirect('/allForm');
+    }
+
+    public function getCache()
+    {   
+        //Cache::put('keyy', 'keyyyy', 60);
+        
+        // $users = User::all();
+        // Cache::put('users', $users, 60);    
+
+        // Retrieve data from the cache
+        $value = Cache::get('users');
+        dd($value);
+    }
+
+    public function cache()
+    {   
+        $users = User::all();
+        Cache::put('users', $users, 45);
     }
 }
