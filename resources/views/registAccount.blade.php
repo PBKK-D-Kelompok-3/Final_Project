@@ -36,21 +36,28 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
+              <li class="nav-item d-lg-none">
+                <a class="nav-link text-light" href="/riwayat">Riwayat</a>
+              </li>
                 <li class="nav-item d-lg-none">
-                    <a class="nav-link text-light" href="#">Dashboard</a>
+                    <a class="nav-link text-light" href="/dashboard">Dashboard</a>
                 </li>
                 <li class="nav-item d-lg-none">
-                    <a class="nav-link text-light" href="#">Account</a>
+                    <a class="nav-link text-light" href="/detail">Account</a>
                 </li>
             </ul>
         </div>
         <div class="ml-auto d-none d-lg-block">
-            <a class="nav-link text-light" href="#">Dashboard</a>
+          <a class="nav-link text-light" href="/riwayat">Riwayat</a>
+      </div>
+        <div class="ml-auto d-none d-lg-block">
+            <a class="nav-link text-light" href="/dashboard">Dashboard</a>
         </div>
         <div class="ml-auto d-none d-lg-block">
-            <a class="nav-link text-light" href="#">Account</a>
+            <a class="nav-link text-light" href="/detail">Account</a>
         </div>
     </nav>
+    <div class="container" style="margin-top: 40px;">
 
     <div class="container" style="background-color: #FFFFFF;">
     <div class="row justify-content-center align-items-center" style="height:100vh;">
@@ -92,7 +99,7 @@
         </form>
       </div>
       <div>Sudah Punya Akun, 
-      <a href="">
+      <a href="/login">
         Login
       </a></div>
       <div class="col-12">

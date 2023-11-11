@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Cache;
@@ -13,9 +14,28 @@ class FormController extends Controller
 {
     public function index()
     {
-        $datas = User::all();
+        $datas = User::find(auth()->user()->id);
 
         return view('detailAccount', ["datas" => $datas]);
+    }
+
+    public function logOut(Request $request) 
+    {
+        if(Auth::check())
+        {
+            Auth::logout();
+            return redirect("/login");
+        }
+    }
+
+    public function deleteAcc(Request $request)
+    {
+        if(Auth::check())
+        {
+            $user = User::find(auth()->user()->id);
+            $user->delete();
+            return redirect("/login");
+        }
     }
     public function store(Request $request)
     {

@@ -7,24 +7,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-.container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.container .row {
-  height: 100%;
-}
+    .container .row {
+      height: 100%;
+      width: 100%;
+    }
 
-.col-6 {
-  max-width: 1000px;
-  width: 100%;
-  padding: 10px;
+    .carousel-item img {
+      width: 800px;
+      height: 400px;
+      object-fit: cover;
+    }
+    .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0.5, 0.5);
 }
   </style>
 </head>
@@ -57,47 +65,56 @@
             <a class="nav-link text-light" href="/detail">Account</a>
         </div>
     </nav>
+
     <div class="container" style="margin-top: 40px;">
-    @if ($errors->has('error'))
-    <div class="alert alert-danger">
-        {{ $errors->first('error') }}
-    </div>
-@endif
-<div class="container" style="background-color: #FFFFFF;">
-  <div class="row justify-content-center align-items-center" style="height:100%;">
-    <div class="col-12">
-      <div class="row justify-content-center">10NopemberCinema - Login</div>
-      <hr class="line-secondary mt-0 mb-4" style="border-top:2px solid #6c757d;">
-    </div>
-    <div class="col-6">
-      <form action="/db-auth" method="POST" enctype="multipart/form-data">
-        @csrf
-        <div class="mb-3">
-          <label for="exampleInputphone1" class="form-label">Phone</label>
-          <input name='phone' type="text" class="form-control" id="exampleInputphone1">
+    <header class="col-md-12 col-lg-12 mt-5 text-center">
+      <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+        <div id="heroCarousel" class="carousel carousel-fade" data-bs-ride="carousel">
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <img src="/Images/.jpeg" class="d-block img-fluid" alt="Image 1">
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <img src="/Images/.jpeg" class="d-block img-fluid" alt="Image 2">
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <img src="/Images/.jpeg" class="d-block img-fluid" alt="Image 3">
+          </div>
+
+          <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </a>
+          <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </a>
         </div>
-        <div class="mb-3">
-          <label for="exampleInputalamat1" class="form-label">Email</label>
-          <input name='email' type="text" class="form-control" id="exampleInputalamat1">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputnominal1" class="form-label">Password</label>
-          <input name='password' type="password" class="form-control" id="exampleInputnominal1">
-        </div>
-        <button type="submit" class="btn btn-secondary">Login</button>
-      </form>
-    </div>
-    <div>Pengguna Baru, 
-      <a href="/register">
-        Registrasi
-      </a></div>
-    <div class="col-12">
-      <hr class="line-secondary mt-0 mb-4" style="border-top:2px solid #6c757d;">
-    </div>
+      </section>
+      <h3>Film Menarik Untuk Meningkatkan Semangat Perjuangan Anda</h3>
+    </header>
   </div>
+
+  <div>
+    <section id="carousel" class="my-4">
+        <div class="row">
+            @foreach ($films as $film)
+                <div class="col-lg-2 col-md-4 col-sm-6 ">
+                    <a href="/film/{{$film->id}}" class="btn">
+                        <div class="card">
+                            <img src="/storage/images/{{$film->poster}}" class="card-img" alt="Film 1" width="200" height="300">
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </section>
 </div>
+
+
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
