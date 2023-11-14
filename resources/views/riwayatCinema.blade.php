@@ -155,24 +155,32 @@
 
 <div class="col-md-8 right-section">
   <div class="info">
-        <div class="card" style="width: 750px; height:200px;">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-4">
-                    <img src="your-image.jpg" alt="Movie Poster" onerror="this.style.display='none'" class="card-img-left">
+    <div class="card" style="width: 750px;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="your-image.jpg" alt="Movie Poster" onerror="this.style.display='none'" class="card-img-top">
                     <div class="no-image">Image not available</div>
-                  </div>
-                  <div class="col-md-8">
-                <h5 class="card-title"> #1</h5>
-                <div class="container">
-                    <p class="text-truncate">Info </p>
                 </div>
-                  </div>
+                <div class="col-md-8">
+                    <h5 class="card-title">#1</h5>
+                    <div class="container">
+                      <div class="row">
+                        <p class="card-text">Judul</p>
+                      </div>
+                      <div class="row">
+                        <p class="card-text">Jam Tayang</p>
+                      </div>
+                      <div class="row">
+                        <p class="card-text">Tanggal Tayang</p>
+                      </div>
+                    </div>
                 </div>
-                <a href="/" class="btn btn-secondary">Detail</a>
-            </div>
+              </div>
+            <a href="/" class="btn btn-secondary">Detail</a>
         </div>
-  </div>
+    </div>
+</div>
 </div>
 
   <script>

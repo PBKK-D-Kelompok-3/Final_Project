@@ -139,15 +139,15 @@
           </div>
         </div>
         <div class="info">
-        <button class="btn btn-primary m-2" id="button1" onclick="toggleButtonColor(this)">Jam 1</button>
-        <button class="btn btn-primary m-2" id="button2" onclick="toggleButtonColor(this)">Jam 2</button>
-        <button class="btn btn-primary m-2" id="button3" onclick="toggleButtonColor(this)">Jam 3</button>
-        <button class="btn btn-primary m-2" id="button4" onclick="toggleButtonColor(this)">Jam 4</button>
-        <button class="btn btn-primary m-2" id="button5" onclick="toggleButtonColor(this)">Jam 5</button>
-        <button class="btn btn-primary m-2" id="button6" onclick="toggleButtonColor(this)">Jam 6</button>
-        <button class="btn btn-primary m-2" id="button7" onclick="toggleButtonColor(this)">Jam 7</button>
-        <button class="btn btn-primary m-2" id="button8" onclick="toggleButtonColor(this)">Jam 8</button>
-        <button class="btn btn-primary m-2" id="button9" onclick="toggleButtonColor(this)">Jam 9</button>
+        <button class="btn btn-primary m-2" id="button1" onclick="toggleButtonColor(this)">Jam#1</button>
+        <button class="btn btn-primary m-2" id="button2" onclick="toggleButtonColor(this)">Jam#2</button>
+        <button class="btn btn-primary m-2" id="button3" onclick="toggleButtonColor(this)">Jam#3</button>
+        <button class="btn btn-primary m-2" id="button4" onclick="toggleButtonColor(this)">Jam#4</button>
+        <button class="btn btn-primary m-2" id="button5" onclick="toggleButtonColor(this)">Jam#5</button>
+        <button class="btn btn-primary m-2" id="button6" onclick="toggleButtonColor(this)">Jam#6</button>
+        <button class="btn btn-primary m-2" id="button7" onclick="toggleButtonColor(this)">Jam#7</button>
+        <button class="btn btn-primary m-2" id="button8" onclick="toggleButtonColor(this)">Jam#8</button>
+        <button class="btn btn-primary m-2" id="button9" onclick="toggleButtonColor(this)">Jam#9</button>
         </div>
       </div>
     </div>
