@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('confirm'); 
-            $table->string('profile')->nullable();
             $table->string('gambar')->nullable();
             $table->timestamps();
         });

@@ -63,7 +63,7 @@
   <div class="row justify-content-center align-items-center" style="height:100%;">
     <div class="col-12">
       <div class="rounded-circle bg-secondary shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="margin-top:15px; width: 70px; height: 70px;">
-        <img class="rounded-circle "src="/storage/images/{{$datas->gambar}}" height="45" alt=""
+        <img class="rounded-circle "src="/storage/images/{{$datas->gambar}}" height="70" alt=""
              loading="lazy" />
       </div>
       <div class="row justify-content-center">{{$datas->name}}</div>

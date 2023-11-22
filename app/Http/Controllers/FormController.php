@@ -14,9 +14,12 @@ class FormController extends Controller
 {
     public function index()
     {
-        $datas = User::find(auth()->user()->id);
-
-        return view('detailAccount', ["datas" => $datas]);
+        if (Auth::check()) {
+            $datas = User::find(auth()->user()->id);
+            return view('detailAccount', ["datas" => $datas]);
+        } else {
+            return redirect("/login");
+        }
     }
 
     public function logOut(Request $request) 
