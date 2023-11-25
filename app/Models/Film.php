@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Film extends Model
 {
@@ -20,4 +21,14 @@ class Film extends Model
             'durasi',
             'sinopsis',
     ];
+
+    public function film_showtime(): HasMany
+    {
+        return $this->hasMany(FilmShowtime::class, 'film_id', 'id');
+    }
+
+    public function film_studio(): HasMany
+    {
+        return $this->hasMany(FilmStudio::class, 'film_id', 'id');
+    }
 }
