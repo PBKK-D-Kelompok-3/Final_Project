@@ -5,6 +5,7 @@ use App\Http\Controllers\FilmShowtimeController;
 use App\Http\Controllers\FilmStudioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\StudioController;
 use App\Http\Controllers\StudioFilmController;
 use App\Models\StudioFilm;
@@ -83,3 +84,12 @@ Route::post('/create-film-showtime', [FilmShowtimeController::class, 'storeFilmS
 Route::get('/studio-films', [StudioFilmController::class, 'index']);
 Route::get('/create-studio-film/{id}', [StudioFilmController::class, 'createStudioFilm']); //3
 Route::post('/create-studio-film', [StudioFilmController::class, 'storeStudioFilm']);
+
+Route::get('/showtimes', [ShowtimeController::class, 'index']);
+Route::get('/create-showtime', [ShowtimeController::class, 'createShowtime']);
+Route::post('/create-showtime', [ShowtimeController::class, 'storeShowtime']);
+
+Route::get('/movie-ticket/{id}', [FilmController::class,'movieTicketDetail']);
+
+// Route::get('/create-schedule/{id}', [FilmController::class, 'createSchedule']);
+// Route::post('/create-schedule/{id}', [FilmController::class, 'storeSchedule']);

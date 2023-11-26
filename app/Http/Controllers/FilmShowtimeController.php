@@ -32,6 +32,16 @@ class FilmShowtimeController extends Controller
         $film_id = $request->film_id;
         $showtime_id = $request->showtime_id;
 
+        $filmShowtime = FilmShowtime::where('film_id', $film_id)->where('showtime_id', $showtime_id)->first();
+
+        if ($filmShowtime)
+        {
+            return response()->json([
+                'message' => 'fail',
+                'data' => $filmShowtime
+            ]);
+        }
+
         $filmShowtime = FilmShowtime::create([
             'film_id' => $film_id,
             'showtime_id' => $showtime_id,

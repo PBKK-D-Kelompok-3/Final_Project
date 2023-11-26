@@ -90,8 +90,8 @@
     <div class="row">
         <div class="col-12">
         <div class="text-left">
-            <a href="" class="d-inline-block">
-            <button class="btn btn-primary" id="button01" onclick="checkButtons()">Lanjut</button>
+            <a href="/create-studio-film/{{ $film->id }}">
+              <button class="btn btn-secondary" id="button01" onclick="checkButtons()">Add Jadwal</button>
             </a>
         </div>
         </div>
@@ -153,6 +153,7 @@
     </div>
   </div>
 
+
   <script>
     let selectedButtonId = null;
   
@@ -181,8 +182,6 @@
           // Pembatalan konfirmasi
           alert("Pemilihan jam dibatalkan.");
         }
-      } else {
-        alert("Silakan pilih salah satu waktu tayang sebelum melanjutkan.");
       }
     }
   </script>

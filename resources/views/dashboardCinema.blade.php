@@ -13,6 +13,25 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
+    .button {
+      display: inline-block;
+      padding: 5px 10px;
+      margin-right: 5px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid #ffffff;
+      color: #fff6f6;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #283337;
+      color: #fff;
+    }
+
     .container {
       width: 100%;
       height: 100%;
@@ -39,6 +58,9 @@
 <body style="background-color: #E6E6E6;">
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #606E7C;">
         <a class="navbar-brand text-light" href="#">10NopemberCinema</a>
+        <a href="/create-film-studio" class="button">Create Film Studio</a>
+        <a href="/create-film-showtime" class="button">Create Film Showtime</a>
+        <a href="/create-showtime" class="button">Create Showtime</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border-width: 4px;">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -65,6 +87,7 @@
             <a class="nav-link text-light" href="/detail">Account</a>
         </div>
     </nav>
+
 
     <div class="container" style="margin-top: 40px;">
     <header class="col-md-12 col-lg-12 mt-5 text-center">

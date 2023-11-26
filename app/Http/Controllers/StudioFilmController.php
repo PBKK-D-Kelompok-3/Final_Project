@@ -34,6 +34,16 @@ class StudioFilmController extends Controller
         $film_studio_id = $request->film_studio_id;
         $film_showtime_id = $request->film_showtime_id;
 
+        $studiofilm = StudioFilm::where('film_studio_id', $film_studio_id)->where('film_showtime_id', $film_showtime_id)->first();
+
+        if ($studiofilm)
+        {
+            return response()->json([
+                'message' => 'fail',
+                'data' => $studiofilm
+            ]);
+        }
+
         $studioFilm = StudioFilm::create([
             'film_studio_id' => $film_studio_id,
             'film_showtime_id' => $film_showtime_id,
