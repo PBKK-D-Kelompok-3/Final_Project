@@ -58,9 +58,11 @@
 <body style="background-color: #E6E6E6;">
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #606E7C;">
         <a class="navbar-brand text-light" href="#">10NopemberCinema</a>
-        <a href="/create-film-studio" class="button">Create Film Studio</a>
-        <a href="/create-film-showtime" class="button">Create Film Showtime</a>
-        <a href="/create-showtime" class="button">Create Showtime</a>
+        @if (auth()->user()->role == 1)
+          <a href="/create-film-studio" class="button">Create Film Studio</a>
+          <a href="/create-film-showtime" class="button">Create Film Showtime</a>
+          <a href="/create-showtime" class="button">Create Showtime</a>
+        @endif
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border-width: 4px;">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -125,11 +127,19 @@
         <div class="row">
             @foreach ($films as $film)
                 <div class="col-lg-2 col-md-4 col-sm-6 ">
+                  @if (auth()->user()->role == 1)
                     <a href="/film/{{$film->id}}" class="btn">
                         <div class="card">
                             <img src="/storage/images/{{$film->poster}}" class="card-img" alt="Film 1" width="200" height="300">
                         </div>
                     </a>
+                  @else 
+                    <a href="/movie-ticket/{{$film->id}}" class="btn">
+                      <div class="card">
+                          <img src="/storage/images/{{$film->poster}}" class="card-img" alt="Film 1" width="200" height="300">
+                      </div>
+                    </a>
+                  @endif
                 </div>
             @endforeach
         </div>

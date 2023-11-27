@@ -68,6 +68,7 @@ class FormController extends Controller
             "password" => Hash::make($request->password),
             "confirm" => $request->confirm,
             "gambar" => $filename,
+            "role" => 0
         ]);
 
         return redirect('/allForm');

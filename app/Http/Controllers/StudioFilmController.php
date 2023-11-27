@@ -49,6 +49,6 @@ class StudioFilmController extends Controller
             'film_showtime_id' => $film_showtime_id,
         ]);
 
-        return redirect('/studio-films');
+        return view('studio-films');
     }
 }

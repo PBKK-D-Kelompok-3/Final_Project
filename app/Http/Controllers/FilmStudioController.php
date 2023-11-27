@@ -27,6 +27,7 @@ class FilmStudioController extends Controller
         return view('studio-film', ['studios' => $studios, 'films' => $films]);
     }
 
+ 
     public function storeFilmStudio(Request $request)
     {
         $film_id = $request->film_id;
@@ -36,9 +37,12 @@ class FilmStudioController extends Controller
 
         if ($filmStudio)
         {
-            return response()->json([
-                'message' => 'fail',
-                'data' => $filmStudio
+            return view('film-studios', [
+                'status' => 'fail',
+                'data' => [
+                    'message' => 'fail',
+                    'data' => $filmStudio
+                ],
             ]);
         }
 
@@ -47,6 +51,8 @@ class FilmStudioController extends Controller
             'studio_id' => $studio_id,
         ]);
 
-        return redirect('/film-studios');
+        $filmStudio = FilmStudio::all();
+        return view('film-studios', ['status' => 'success', 'data' => $filmStudio]);
     }
+
 }

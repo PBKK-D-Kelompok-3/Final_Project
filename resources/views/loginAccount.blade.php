@@ -73,10 +73,6 @@
       <form action="/db-auth" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-          <label for="exampleInputphone1" class="form-label">Phone</label>
-          <input name='phone' type="text" class="form-control" id="exampleInputphone1">
-        </div>
-        <div class="mb-3">
           <label for="exampleInputalamat1" class="form-label">Email</label>
           <input name='email' type="text" class="form-control" id="exampleInputalamat1">
         </div>

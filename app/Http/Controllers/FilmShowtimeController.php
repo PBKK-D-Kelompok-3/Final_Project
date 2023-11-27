@@ -36,9 +36,12 @@ class FilmShowtimeController extends Controller
 
         if ($filmShowtime)
         {
-            return response()->json([
-                'message' => 'fail',
-                'data' => $filmShowtime
+            return view('film-showtimes', [
+                'status' => 'fail',
+                'data' => [
+                    'message' => 'fail',
+                    'data' => $filmShowtime
+                ],
             ]);
         }
 
@@ -47,7 +50,8 @@ class FilmShowtimeController extends Controller
             'showtime_id' => $showtime_id,
         ]);
 
-        return redirect('/film-showtimes');
+        $filmShowtime = FilmShowtime::all();
+        return view('film-showtimes', ['status' => 'success', 'data' => $filmShowtime]);
     }
 
 }

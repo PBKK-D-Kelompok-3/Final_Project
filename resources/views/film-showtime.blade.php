@@ -1,7 +1,7 @@
 @extends('mainLayout')
 
 @section('content')
-<div class="container" style="align-content: center;">pokok dah</div>
+<div class="container" style="align-content: center;"></div>
 <form id="filmShowtimeForm" action="/create-film-showtime" method="POST" class="my-5">
     @csrf
     <div class="form-group">

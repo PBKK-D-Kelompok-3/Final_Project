@@ -31,9 +31,12 @@ class ShowtimeController extends Controller
 
         if ($showtime)
         {
-            return response()->json([
-                'messsage' => 'fail',
-                'data' => $showtime,
+            return view('showtimes', [
+                'status' => 'fail',
+                'data' => [
+                    'message' => 'fail',
+                    'data' => $showtime
+                ],
             ]);
         }
 
@@ -42,6 +45,7 @@ class ShowtimeController extends Controller
             'time' => $time
         ]);
 
-        return redirect('/showtimes');
+        $showtime = Showtime::all();
+        return view('showtimes', ['status' => 'success', 'data' => $showtime]);
     }
 }
