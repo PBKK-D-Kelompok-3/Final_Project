@@ -11,10 +11,10 @@ class StudioFilmController extends Controller
 {
     public function index()
     {
-        $studioFilms = StudioFilm::with(['film_studio', 'film_showtime'])->get();
+        $studioFilms = StudioFilm::all();
 
         return response()->json([
-            'message' => 'success',
+            'status' => 'success',
             'data' => $studioFilms
         ]);
     }
@@ -34,13 +34,17 @@ class StudioFilmController extends Controller
         $film_studio_id = $request->film_studio_id;
         $film_showtime_id = $request->film_showtime_id;
 
-        $studiofilm = StudioFilm::where('film_studio_id', $film_studio_id)->where('film_showtime_id', $film_showtime_id)->first();
+        $studioFilm = StudioFilm::where('film_studio_id', $film_studio_id)
+            ->where('film_showtime_id', $film_showtime_id)
+            ->first();
 
-        if ($studiofilm)
-        {
-            return response()->json([
-                'message' => 'fail',
-                'data' => $studiofilm
+        if ($studioFilm) {
+            return view('studio-films', [
+                'status' => 'fail',
+                'data' => [
+                    'message' => 'fail',
+                    'data' => $studioFilm
+                ],
             ]);
         }
 
@@ -49,6 +53,7 @@ class StudioFilmController extends Controller
             'film_showtime_id' => $film_showtime_id,
         ]);
 
-        return view('studio-films');
+        $studioFilms = StudioFilm::all();
+        return view('studio-films', ['status' => 'success', 'data' => $studioFilms]);
     }
 }

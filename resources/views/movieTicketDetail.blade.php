@@ -102,7 +102,7 @@
                     @endphp 
                     <p>
                         @foreach ($filmShowtimes as $index => $filmShowtime)
-                            <button class="btn btn-primary m-2" id="button{{ $index + 1 }}" onclick="toggleButtonColor(this)">
+                            <button class="btn btn-primary m-2" id="button{{ $index + 1 }}" onclick="redirectToSeat()">
                                 Jam#{{ $index + 1 }} - {{ $filmShowtime->showtime->day }} - {{ $filmShowtime->showtime->time }}
                             </button>
                         @endforeach
@@ -114,35 +114,10 @@
 </div>
 
 <script>
-    let selectedButtonId = null;
-  
-    function toggleButtonColor(button) {
-      if (selectedButtonId) {
-        const prevSelectedButton = document.getElementById(selectedButtonId);
-        prevSelectedButton.classList.remove("btn-secondary");
-        prevSelectedButton.classList.add("btn-primary");
-      }
-  
-      button.classList.remove("btn-primary");
-      button.classList.add("btn-secondary");
-      selectedButtonId = button.id;
-    }
-  
-    function checkButtons() {
-      if (selectedButtonId) {
-        const selectedButton = document.getElementById(selectedButtonId);
-        const buttonLabel = selectedButton.textContent;
-        const confirmation = confirm("Apakah anda yakin dengan " + buttonLabel + "?");
-  
-        if (confirmation) {
-          // Lanjutkan dengan aksi yang sesuai
-          alert("Anda telah memilih " + buttonLabel + ". Lanjutkan memilih kursi");
-        } else {
-          // Pembatalan konfirmasi
-          alert("Pemilihan jam dibatalkan.");
-        }
-      }
-    }
-  </script>
+  function redirectToSeat() {
+      window.location.href = '/seat';
+  }
+</script>
+
 
 @endsection
