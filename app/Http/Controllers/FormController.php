@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendWelcomeEmail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Cache;
 use Predis\Client;
+use App\Jobs\SendVerificationEmail;
 
 class FormController extends Controller
 {
@@ -61,7 +63,7 @@ class FormController extends Controller
         $request->file('gambar')->storeAs('public/images', $filename);
         
         $request['gambar'] = $filename;
-        User::create([
+        $user = User::create([
             "name" => $request->name,
             "phone" => $request->phone,
             "email" => $request->email,
@@ -70,6 +72,9 @@ class FormController extends Controller
             "gambar" => $filename,
             "role" => 0
         ]);
+
+        
+        dispatch(new SendWelcomeEmail($user));
 
         return redirect('/allForm');
     }
