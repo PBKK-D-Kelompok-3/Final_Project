@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="csrf-token" content="{{ csrf_token() }}">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
@@ -66,6 +67,11 @@
     </div>
   </nav>
 
+
+  <div id="seat-info">
+        <!-- Display seat information here -->
+  </div>
+
   <div class="container" style="margin-top: 40px;">
     <div class="row">
       <div class="row">
@@ -81,14 +87,13 @@
           </div>
         </div>
       </div>
-      <div class="row">
-      </div>
+      
       <div class="row">
         <div class="col-12">
           <div class="text-left">
-            <a href="" class="d-inline-block">
-              <button class="btn btn-primary" id="button01" onclick="checkButtons()">Lanjut</button>
-            </a>
+          <button class="" id="button01" onclick="checkButtons()">Lanjut</button>
+              <!-- btn btn-primary -->
+            
           </div>
         </div>
       </div>
@@ -99,16 +104,28 @@
 
   <script>
   let activeButtons = [];
+  let activeSeats = [];
+  
 
 function toggleButtonColor(button) {
+  const seatNumber = button.textContent;
+  const rowLetter = button.parentElement.querySelector('span').textContent;
+
+  const seatInfo = {
+    seatNumber: seatNumber,
+    rowLetter: rowLetter
+  };
   if (!activeButtons.includes(button)) {
     button.classList.remove("btn-primary");
     button.classList.add("btn-secondary");
     activeButtons.push(button);
+    activeSeats.push(seatInfo);
+    
   } else {
     button.classList.remove("btn-secondary");
     button.classList.add("btn-primary");
     activeButtons = activeButtons.filter(b => b !== button);
+    activeSeats = activeSeats.filter(seat => !(seat.seatNumber === seatNumber && seat.rowLetter === rowLetter));
   }
 }
 
@@ -119,12 +136,20 @@ function checkButtons() {
   } else {
     const totalSeats = activeButtons.length;
     const confirmation = confirm(`Apakah Anda yakin ingin memesan ${totalSeats} kursi?`);
+    bookSeats();
+    console.log(activeButtons);
+    console.log("Active Seats:", activeSeats);
+    console.table(activeSeats);
+    
 
-    if (confirmation) {
-      // User confirmed the reservation, you can take further action here
-      // For example, you can send the selected seats to the server or perform other tasks.
-      alert("Konfimasi pesanan. Periksa kembali detail pesanan sebelum konfirmasi");
-    }
+    
+
+    // if (confirmation) {
+    //   // User confirmed the reservation, you can take further action here
+    //   // For example, you can send the selected seats to the server or perform other tasks.
+    //   alert("Konfimasi pesanan. Periksa kembali detail pesanan sebelum konfirmasi");
+      
+    // }
   }
 }
 
@@ -167,6 +192,74 @@ for (let i = 0; i < 6; i++) {
 
   // Append the row to the info div
   document.querySelector('.info').appendChild(row);
+
+  function getQueryStringParams() {
+            var params = {};
+            var queryString = window.location.search.substring(1);
+            var pairs = queryString.split('&');
+
+            for (var i = 0; i < pairs.length; i++) {
+                var pair = pairs[i].split('=');
+                params[pair[0]] = decodeURIComponent(pair[1]);
+            }
+
+            return params;
+        }
+
+        // Get the query parameters
+        var queryParams = getQueryStringParams();
+        var studioName = queryParams.studioName || 'N/A';
+        var filmShowtimeId = queryParams.filmShowtimeId || 'N/A';
+        var day = queryParams.day || 'N/A';
+        var time = queryParams.time || 'N/A';
+        var filmId = queryParams.filmId || 'N/A';
+        var filmJudul = queryParams.filmJudul || 'N/A';
+        
+
+
+        // Display the data on the page
+        var seatInfoElement = document.getElementById('seat-info');
+        seatInfoElement.innerHTML = `
+            <p>film ID: ${filmId}</p>
+            <p>Judul: ${filmJudul}</p>
+            <p>Studio Name: ${studioName}</p>
+            <p>Film Showtime ID: ${filmShowtimeId}</p>
+            <p>Day: ${day}</p>
+            <p>Time: ${time}</p>
+        `;
+        }
+
+        function bookSeats() {
+          const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  // Assuming you are using the Fetch API
+  fetch('/booking', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': csrfToken,
+      // Add any additional headers if needed
+    },
+    body: JSON.stringify({
+      activeSeats: activeSeats,
+      studioName: studioName,
+      filmShowTimeID: filmShowtimeId,
+      day: day,
+      time: time,
+      filmId: filmId,
+      filmId: filmJudul,
+      totalSeats: activeSeats.length,
+    }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Booking response:', data);
+    window.location.href = '/riwayat';
+    // Handle the response as needed
+    
+  })
+  .catch(error => {
+    console.error('Error booking seats:', error);
+  });
 }
   </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

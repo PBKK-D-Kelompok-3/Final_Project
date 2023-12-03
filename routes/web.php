@@ -1,13 +1,19 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\FilmShowtimeController;
 use App\Http\Controllers\FilmStudioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\InfoController;
+use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\StudioController;
 use App\Http\Controllers\StudioFilmController;
+
+
+
 use App\Models\StudioFilm;
 use Illuminate\Support\Facades\Route;
 
@@ -59,13 +65,9 @@ Route::middleware('auth-middleware')->group(function() {
         return view('seatCinema');
     });
 
-    Route::get('/info', function(){
-        return view('informationCinema');
-    });
+    Route::get('/info/{id}', [InfoController::class, 'index']);
 
-    Route::get('/riwayat', function(){
-        return view('riwayatCinema');
-    });
+    Route::get('/riwayat', [RiwayatController::class, 'index']);
 
     Route::get('/dashboard', [FilmController::class, 'index']);
     Route::get('/film/{id}', [FilmController::class, 'show']);
@@ -77,6 +79,7 @@ Route::middleware('auth-middleware')->group(function() {
     Route::get('/studio', function() {
         return view('studio');
     });
+    Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
     
     Route::middleware('admin-middleware')->group(function() {
         Route::post('/create-studio', [StudioController::class, 'createStudio']);
@@ -105,6 +108,8 @@ Route::middleware('auth-middleware')->group(function() {
     });
 
     Route::get('/movie-ticket/{id}', [FilmController::class,'movieTicketDetail']);
+
+    
 
 });
 

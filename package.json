@@ -1,17 +1,26 @@
 {
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "dev": "vite",
-        "build": "vite build"
-    },
-    "devDependencies": {
-        "axios": "^1.1.2",
-        "laravel-vite-plugin": "^0.8.0",
-        "vite": "^4.0.0"
-    },
-    "dependencies": {
-        "alpinejs": "^3.13.3",
-        "jquery": "^3.7.1"
-    }
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "axios": "^1.1.2",
+    "laravel-vite-plugin": "^0.8.0",
+    "vite": "^4.5.0"
+  },
+  "dependencies": {
+    "alpinejs": "^3.13.3",
+    "jquery": "^3.7.1"
+  },
+  "name": "final_project-1",
+  "description": "",
+  "version": "1.0.0",
+  "main": "vite.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "",
+  "license": "ISC"
 }
