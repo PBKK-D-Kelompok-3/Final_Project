@@ -26,7 +26,7 @@ class FilmController extends Controller
     public function movieTicketDetail($id)
     {
         $film = Film::with(['film_studio', 'film_showtime', 'film_studio.studio_film', 'film_studio.studio', 'film_showtime.showtime'])->find($id);
-
+        
         // return response()->json([
         //     'data' => $film
         // ]);

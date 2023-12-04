@@ -94,7 +94,7 @@
     <div class="row">
     <div class="col-md-4 left-section">
     <div class="row">
-      <img src="your-image.jpg" alt="Movie Poster" onerror="this.style.display='none'" class="img-responsive">
+      <img src="/storage/images/{{ $booking->poster}}" alt="Movie Poster" onerror="this.style.display='none'" class="img-responsive">
       <div class="no-image">Image not available</div>
     </div>
 </div>
@@ -102,31 +102,31 @@
 <div class="col-md-8 right-section">
   <div class="info">
     <div class="row">
-      <h2 class="col-12">Judul</h2>
+      <h2 class="col-12">{{ $booking->judul }}</h2>
     </div>
     <div class="row">
       <div class="col-4">JENIS FILM</div>
-      <div class="col-8">Action</div>
+      <div class="col-8">{{ $booking->genre }}</div>
     </div>
     <div class="row">
       <div class="col-4">PRODUSER</div>
-      <div class="col-8">Ical</div>
+      <div class="col-8">{{ $booking->produser }}</div>
     </div>
     <div class="row">
       <div class="col-4">SUTRADARA</div>
-      <div class="col-8">Bejo</div>
+      <div class="col-8">{{ $booking->sutradara }}</div>
     </div>
     <div class="row">
       <div class="col-4">PENULIS</div>
-      <div class="col-8">Bambang</div>
+      <div class="col-8">{{ $booking->penulis }}</div>
     </div>
     <div class="row">
       <div class="col-4">PRODUKSI</div>
-      <div class="col-8">TcMovie</div>
+      <div class="col-8">{{ $booking->produksi }}</div>
     </div>
     <div class="row">
       <div class="col-4">DURASI</div>
-      <div class="col-8">2 jam 30 menit</div>
+      <div class="col-8"> {{ $booking->durasi }}</div>
     </div>
   </div>
   <div class="info">
@@ -135,7 +135,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-      sebuah eksplorasi visual dan audio yang menggabungkan berbagai elemen artistik tanpa mengikuti alur cerita konvensional. Film ini memadukan warna, bentuk, suara, gerakan, dan komposisi visual dengan cara yang eksperimental dan inovatif. Penonton akan dibawa dalam pengalaman sensorial yang mendalam, di mana mereka diundang untuk merenungkan, merasakan, dan menginterpretasikan makna di balik setiap adegan, tanpa terikat oleh cerita atau karakter tertentu
+        {{ $booking->sinopsis }}
       </div>
     </div>
     </div>
@@ -143,51 +143,47 @@
     <div class="info">
         <div class="row">
             <div class="col-4">JAM TAYANG</div>
-            <div class="col-8">jam berapa</div>
+            <div class="col-8">{{ $booking->time }}</div>
         </div>
         <div class="row">
             <div class="col-4">TANGGAL TAYANG</div>
-            <div class="col-8">tanggal waktu dipesan</div>
+            <div class="col-8">{{ $booking->day }}</div>
         </div>
         <div class="row">
             <div class="col-4">TOTAL KURSI</div>
-            <div class="col-8"># kursi : kursi-#, kursi-#</div>
+            <div class="col-8"  id="seat-info">
+            @foreach ($seat as $seat)
+            <p>{{ $seat }}</p>
+            
+            @endforeach
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">HARGA</div>
+            <div class="col-8">{{ $booking->harga }}</div>
+        </div>
+        <div class="row">
+            <div class="col-4">PAYMENT_STATUS</div>
+            <div class="col-8">{{ $booking->payment_status }}</a></div>
+        </div>
+        <div class="row">
+            <div class="col-4">LINK PEMBAYARAN</div>
+            <div class="col-8"><a href="{{ $booking->payment_link}}">{{ $booking->payment_link}}</a></div>
         </div>
     </div>
   </div>
 
   <script>
-    let selectedButtonId = null;
-  
-    function toggleButtonColor(button) {
-      if (selectedButtonId) {
-        const prevSelectedButton = document.getElementById(selectedButtonId);
-        prevSelectedButton.classList.remove("btn-secondary");
-        prevSelectedButton.classList.add("btn-primary");
-      }
-  
-      button.classList.remove("btn-primary");
-      button.classList.add("btn-secondary");
-      selectedButtonId = button.id;
+    function seats(seat){
+      var element = document.getElementById('seat-info');
+      var bookingData = <?php echo $booking; ?>;
+      console.log(bookingData);
     }
+    
+    seats();
   
-    function checkButtons() {
-      if (selectedButtonId) {
-        const selectedButton = document.getElementById(selectedButtonId);
-        const buttonLabel = selectedButton.textContent;
-        const confirmation = confirm("Apakah anda yakin dengan " + buttonLabel + "?");
-  
-        if (confirmation) {
-          // Lanjutkan dengan aksi yang sesuai
-          alert("Anda telah memilih " + buttonLabel + ". Lanjutkan memilih kursi");
-        } else {
-          // Pembatalan konfirmasi
-          alert("Pemilihan jam dibatalkan.");
-        }
-      } else {
-        alert("Silakan pilih salah satu waktu tayang sebelum melanjutkan.");
-      }
-    }
+    
   </script>
   
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

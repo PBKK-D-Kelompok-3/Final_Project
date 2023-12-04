@@ -102,7 +102,7 @@
                     @endphp 
                     <p>
                         @foreach ($filmShowtimes as $index => $filmShowtime)
-                            <button class="btn btn-primary m-2" id="button{{ $index + 1 }}" onclick="redirectToSeat()">
+                            <button class="btn btn-primary m-2" id="button{{ $index + 1 }}" onclick="redirectToSeat('{{ $film_studio->studio->name }}', '{{ $studio_film->film_showtime_id }}', '{{ $filmShowtime->showtime->day }}', '{{ $filmShowtime->showtime->time }}', '{{ $film->id }}', '{{ $film->judul }}')">
                                 Jam#{{ $index + 1 }} - {{ $filmShowtime->showtime->day }} - {{ $filmShowtime->showtime->time }}
                             </button>
                         @endforeach
@@ -114,8 +114,9 @@
 </div>
 
 <script>
-  function redirectToSeat() {
-      window.location.href = '/seat';
+  function redirectToSeat(studioName, filmShowtimeId, day, time, filmId, filmJudul) {
+      var url = '/seat?studioName=' + encodeURIComponent(studioName) + '&filmShowtimeId=' + filmShowtimeId + '&day=' + day + '&time=' + time + '&filmId=' + filmId + '&filmJudul=' + filmJudul;
+      window.location.href = url;
   }
 </script>
 

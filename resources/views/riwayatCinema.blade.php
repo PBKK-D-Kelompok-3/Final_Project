@@ -155,31 +155,33 @@
 
 <div class="col-md-8 right-section">
   <div class="info">
+    @foreach($bookings as $booking)
     <div class="card" style="width: 750px;">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="your-image.jpg" alt="Movie Poster" onerror="this.style.display='none'" class="card-img-top">
+                    <img src="{{ $booking->poster }}" alt="Movie Poster" onerror="this.style.display='none'" class="card-img-top">
                     <div class="no-image">Image not available</div>
                 </div>
                 <div class="col-md-8">
-                    <h5 class="card-title">#1</h5>
+                    <h5 class="card-title"></h5>
                     <div class="container">
                       <div class="row">
-                        <p class="card-text">Judul</p>
+                        <p class="card-text">{{ $booking->judul}}</p>
                       </div>
                       <div class="row">
-                        <p class="card-text">Jam Tayang</p>
+                        <p class="card-text">{{ $booking->time }}</p>
                       </div>
                       <div class="row">
-                        <p class="card-text">Tanggal Tayang</p>
+                        <p class="card-text">{{ $booking->day }}</p>
                       </div>
                     </div>
                 </div>
               </div>
-            <a href="/" class="btn btn-secondary">Detail</a>
+            <a href="/info/{{ $booking->id }}" class="btn btn-secondary">Detail</a>
         </div>
     </div>
+    @endforeach
 </div>
 </div>
 
