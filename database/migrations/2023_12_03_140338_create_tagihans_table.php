@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('payment_status')->nullable();
             $table->text('payment_link')->nullable();
             $table->timestamps();
+
+            $table->foreignId('booking_id')->constrained();
         });
     }
 

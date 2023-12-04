@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+
 use App\Http\Controllers\FilmController;
+use App\Http\Controllers\TagihanController;
 use App\Http\Controllers\FilmShowtimeController;
 use App\Http\Controllers\FilmStudioController;
 use App\Http\Controllers\LoginController;
@@ -12,9 +14,6 @@ use App\Http\Controllers\ShowtimeController;
 use App\Http\Controllers\StudioController;
 use App\Http\Controllers\StudioFilmController;
 
-
-
-use App\Models\StudioFilm;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,7 +43,7 @@ Route::get('/register', function(){
 Route::post('/db-form', [FormController::class, 'store']);
 Route::post('/db-auth', [LoginController::class, 'authenticate']);
 
-
+Route::post('/callback', [TagihanController::class, 'callback']);
 
 Route::middleware('auth-middleware')->group(function() {
     
@@ -112,6 +111,8 @@ Route::middleware('auth-middleware')->group(function() {
     
 
 });
+
+
 
 // Route::get('/create-schedule/{id}', [FilmController::class, 'createSchedule']);
 // Route::post('/create-schedule/{id}', [FilmController::class, 'storeSchedule']);

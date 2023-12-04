@@ -11,12 +11,14 @@ class InfoController extends Controller
         $booking_id = $id;
         $booking = Booking::join('film_showtimes', 'bookings.film_showtime_id', '=', 'film_showtimes.id')
         ->join('films', 'film_showtimes.film_id', '=', 'films.id')
+        ->join('tagihans', 'bookings.id', '=', 'tagihans.booking_id')
         ->where('bookings.id', $booking_id)
         ->select('bookings.id', 'films.judul', 'films.genre', 'films.produser', 
                     'films.sutradara', 'films.penulis', 'bookings.studio_name',
                     'films.produksi', 'films.durasi', 'bookings.seats', 
                     'films.poster', 'films.sinopsis','bookings.day', 'bookings.time',
-                    'bookings.harga', 'bookings.link_pembayaran')
+                    'bookings.harga', 'tagihans.payment_status', 
+                    'tagihans.payment_link')
         ->first();
         
         

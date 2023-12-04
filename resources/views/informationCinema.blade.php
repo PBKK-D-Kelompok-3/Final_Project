@@ -94,7 +94,7 @@
     <div class="row">
     <div class="col-md-4 left-section">
     <div class="row">
-      <img src="{{ $booking->poster}}" alt="Movie Poster" onerror="this.style.display='none'" class="img-responsive">
+      <img src="/storage/images/{{ $booking->poster}}" alt="Movie Poster" onerror="this.style.display='none'" class="img-responsive">
       <div class="no-image">Image not available</div>
     </div>
 </div>
@@ -164,8 +164,12 @@
             <div class="col-8">{{ $booking->harga }}</div>
         </div>
         <div class="row">
+            <div class="col-4">PAYMENT_STATUS</div>
+            <div class="col-8">{{ $booking->payment_status }}</a></div>
+        </div>
+        <div class="row">
             <div class="col-4">LINK PEMBAYARAN</div>
-            <div class="col-8">{{ $booking->link_pembayaran}}</div>
+            <div class="col-8"><a href="{{ $booking->payment_link}}">{{ $booking->payment_link}}</a></div>
         </div>
     </div>
   </div>

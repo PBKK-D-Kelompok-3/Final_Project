@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\CreateTagihan;
 use Illuminate\Http\Request;
 use App\Models\Booking;
-use App\Models\Tagihan;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Http;
 use SebastianBergmann\CodeCoverage\Report\Xml\Totals;
+use Illuminate\Support\Facades\Http;
 
 class BookingController extends Controller
 {
@@ -33,26 +32,6 @@ class BookingController extends Controller
         $payment_url = "https:www.google.com/";
 
 
-        // $secret_key = 'Basic '.config('xendit.key_auth');
-        // $external_id = Str::random(10);
-        // $data_request = Http::withHeaders([
-        //     'Authorization' => $secret_key
-        // ])->post('https://api.xendit.co/v2/invoices', [
-        //     'external_id' => $external_id,
-        //     'amount' => $harga
-        // ]);
-        // $response = $data_request->object();
-        // Tagihan::create([
-        //     'doc_no' => $external_id,
-        //     'amount' => request('amount'),
-        //     'description' => request('description'),
-        //     'payment_status' => $response->status,
-        //     'payment_link' => $response->invoice_url
-        // ]);
-
-
-        
-        
         // Store the booking data
         $booking = new Booking();
         $booking->film_showtime_id = $request->input('filmShowTimeID');
@@ -71,7 +50,11 @@ class BookingController extends Controller
        
         $booking->save();
 
+        dispatch(new CreateTagihan($booking));
+
         // Return a response (example)
         return response()->json(['message' => 'Booking successful']);
     }
+
+    
 }

@@ -27,9 +27,7 @@ class SendWelcomeEmail implements ShouldQueue
         // Send the verification email
         $user = $this->user;
         // /dd($user->email);
-        
-        
-        
+
         
         Mail::to($user->email)->send(new WelcomeEmail($user));
     }

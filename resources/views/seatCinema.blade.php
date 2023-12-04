@@ -220,12 +220,10 @@ for (let i = 0; i < 6; i++) {
         // Display the data on the page
         var seatInfoElement = document.getElementById('seat-info');
         seatInfoElement.innerHTML = `
-            <p>film ID: ${filmId}</p>
             <p>Judul: ${filmJudul}</p>
-            <p>Studio Name: ${studioName}</p>
-            <p>Film Showtime ID: ${filmShowtimeId}</p>
-            <p>Day: ${day}</p>
-            <p>Time: ${time}</p>
+            <p>Studio: ${studioName}</p>
+            <p>Tanggal: ${day}</p>
+            <p>Jam: ${time}</p>
         `;
         }
 
