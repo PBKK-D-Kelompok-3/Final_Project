@@ -95,7 +95,6 @@
     <div class="col-md-4 left-section">
     <div class="row">
       <img src="/storage/images/{{ $booking->poster}}" alt="Movie Poster" onerror="this.style.display='none'" class="img-responsive">
-      <div class="no-image">Image not available</div>
     </div>
 </div>
 

@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     .container {
@@ -110,40 +111,46 @@
                           <ul class="list-unstyled">
                             <li class="mb-2">
                                 <hr class="line-secondary mt-0 mb-3" style="border-top:2px solid #c9cacc;">
-                              <a href="/" class="text-white"><i class="fas fa-paw pe-3"></i>Budi Pekerti, Film Baru Prilly Latuconsina dan Angga Yunanda</a>
+                                <a href="https://www.tix.id/172-days-kisah-cinta-singkat-penuh-makna" class="text-white">
+                                    <i class="fas fa-paw pe-3"></i>172 Days, Kisah Cinta Singkat Penuh Makna
+                                </a>
                             </li>
                             <li class="mb-2">
                                 <hr class="line-secondary mt-0 mb-3" style="border-top:2px solid #c9cacc;">
-                              <a href="/" class="text-white"><i class="fas fa-paw pe-3"></i>Layangan Putus The Movie Akan Ramaikan Bioskop di Akhir Tahun</a>
+                                <a href="https://www.tix.id/ikuti-perjalanan-wonka-membangun-pabrik-coklat-ajaib/" class="text-white">
+                                    <i class="fas fa-paw pe-3"></i>Ikuti Perjalanan WONKA Membangun Pabrik Coklat Ajaib!
+                                </a>
                             </li>
                             <li class="mb-2">
                                 <hr class="line-secondary mt-0 mb-3" style="border-top:2px solid #c9cacc;">
-                              <a href="/" class="text-white"><i class="fas fa-paw pe-3"></i>More News</a>
+                                <a href="https://www.tix.id/anya-taylor-joy-tampil-sangar-di-trailer-pertama-furiosa-2/" class="text-white">
+                                    <i class="fas fa-paw pe-3"></i>Anya Taylor Joy Tampil Sangar di Trailer Pertama Furiosa
+                                </a>
                             </li>
                             <li class="mb-2">
                                 <hr class="line-secondary mt-0 mb-3" style="border-top:2px solid #c9cacc;">
-                              <a href="/" class="text-white"><i class="fas fa-paw pe-3"></i>More News</a>
+                                <a href="https://www.tix.id/weekend-lebih-seru-bareng-trolls-band-together-di-bioskop/" class="text-white">
+                                    <i class="fas fa-paw pe-3"></i>Weekend Lebih Seru Bareng Trolls Band Together di Bioskop
+                                </a>
                             </li>
                             <li class="mb-2">
                                 <hr class="line-secondary mt-0 mb-3" style="border-top:2px solid #c9cacc;">
-                              <a href="/" class="text-white"><i class="fas fa-paw pe-3"></i>More News</a>
+                                <a href="https://www.tix.id/top-5-karakter-utama-film-yang-aktornya-diganti/" class="text-white">
+                                    <i class="fas fa-paw pe-3"></i>Top 5 Karakter Utama Film Yang Aktornya Diganti!
+                                </a>
                             </li>
                             <li class="mb-2">
                                 <hr class="line-secondary mt-0 mb-3" style="border-top:2px solid #c9cacc;">
-                              <a href="/" class="text-white"><i class="fas fa-paw pe-3"></i>More News</a>
+                                <a href="https://www.tix.id/intip-daftar-lagu-taylor-swift-the-eras-tour-sebelum-nonton-filmnya/" class="text-white">
+                                    <i class="fas fa-paw pe-3"></i>Intip Daftar Lagu Taylor Swift: The Eras Tour Sebelum Nonton Filmnya!
+                                </a>
                             </li>
                             <li class="mb-2">
                                 <hr class="line-secondary mt-0 mb-3" style="border-top:2px solid #c9cacc;">
-                              <a href="/" class="text-white"><i class="fas fa-paw pe-3"></i>More News</a>
+                                <a href="https://www.tix.id/perankan-tigris-snow-hunter-schafer-tuai-pujian-dari-warganet/" class="text-white">
+                                    <i class="fas fa-paw pe-3"></i>Perankan Tigris Snow, Hunter Schafer Tuai Pujian Dari Warganet!
+                                </a>
                             </li>
-                            <li class="mb-2">
-                                <hr class="line-secondary mt-0 mb-3" style="border-top:2px solid #c9cacc;">
-                                <a href="/" class="text-white"><i class="fas fa-paw pe-3"></i>More News</a>
-                              </li>
-                              <li class="mb-2">
-                                <hr class="line-secondary mt-0 mb-3" style="border-top:2px solid #c9cacc;">
-                                <a href="/" class="text-white"><i class="fas fa-paw pe-3"></i>More News</a>
-                              </li>
                               <hr class="line-secondary mt-3" style="border-top:2px solid #c9cacc;">
                           </ul>
                         </div>
@@ -159,25 +166,29 @@
     <div class="card" style="width: 750px;">
         <div class="card-body">
             <div class="row">
-                <div class="col-md-4">
-                    <img src="{{ $booking->poster }}" alt="Movie Poster" onerror="this.style.display='none'" class="card-img-top">
-                    <div class="no-image">Image not available</div>
-                </div>
-                <div class="col-md-8">
-                    <h5 class="card-title"></h5>
-                    <div class="container">
-                      <div class="row">
-                        <p class="card-text">{{ $booking->judul}}</p>
+              <div class="col-md-4">
+                  <img src="/storage/images/{{ $booking->poster}}" alt="Movie Poster" onerror="this.style.display='none'" class="card-img-top" style="max-width: 75%;">
+              </div>            
+              <div class="col-md-8">
+                  <div class="card">
+                      <div class="card-body">
+                          <h2 class="card-title">{{ $booking->judul}}</h2>
+                          <div class="container">
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <p class="card-text">Jam Tayang : {{ $booking->time }}</p>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <p class="card-text">Tanggal Tayang : {{ $booking->day }}</p>
+                                  </div>
+                              </div>
+                          </div>
                       </div>
-                      <div class="row">
-                        <p class="card-text">{{ $booking->time }}</p>
-                      </div>
-                      <div class="row">
-                        <p class="card-text">{{ $booking->day }}</p>
-                      </div>
-                    </div>
-                </div>
-              </div>
+                  </div>
+              </div>            
+        </div>
             <a href="/info/{{ $booking->id }}" class="btn btn-secondary">Detail</a>
         </div>
     </div>

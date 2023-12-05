@@ -95,29 +95,29 @@
     <header class="col-md-12 col-lg-12 mt-5 text-center">
       <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
         <div id="heroCarousel" class="carousel carousel-fade" data-bs-ride="carousel">
-          <!-- Slide 1 -->
-          <div class="carousel-item active">
-            <img src="/Images/.jpeg" class="d-block img-fluid" alt="Image 1">
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="carousel-item">
-            <img src="/Images/.jpeg" class="d-block img-fluid" alt="Image 2">
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="carousel-item">
-            <img src="/Images/.jpeg" class="d-block img-fluid" alt="Image 3">
-          </div>
-
-          <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          </a>
-          <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          </a>
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <img src="{{ asset('storage/images/poster-1.png') }}" class="d-block img-fluid" style="width: 100%;" alt="Image 1">
+            </div>
+    
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <img src="{{ asset('storage/images/poster-2.jpg') }}" class="d-block img-fluid" style="width: 100%;" alt="Image 2">
+            </div>
+    
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <img src="{{ asset('storage/images/poster-3.png') }}" class="d-block img-fluid" style="width: 100%;" alt="Image 3">
+            </div>
+    
+            <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
         </div>
-      </section>
+    </section>    
       <h3>Film Menarik Untuk Meningkatkan Semangat Perjuangan Anda</h3>
     </header>
   </div>
